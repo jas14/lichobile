@@ -170,11 +170,14 @@ function renderContent(ctrl: OnlineRound, isPortrait: boolean) {
 
   const orientationKey = isPortrait ? 'o-portrait' : 'o-landscape'
 
+  const farPlayer = (!ctrl.data.tv && ctrl.vm.flip) ? player : opponent
+  const nearPlayer = (!ctrl.data.tv && ctrl.vm.flip) ? opponent : player
+
   if (isPortrait) {
     return h.fragment({ key: orientationKey }, [
-      opponent,
+      farPlayer,
       board,
-      player,
+      nearPlayer,
       renderGameActionsBar(ctrl)
     ])
   } else {
@@ -182,9 +185,9 @@ function renderContent(ctrl: OnlineRound, isPortrait: boolean) {
       board,
       <section className="table">
         <section className="playersTable">
-          {opponent}
+          {farPlayer}
           {renderReplayTable(ctrl)}
-          {player}
+          {nearPlayer}
         </section>
         {renderGameActionsBar(ctrl)}
       </section>
