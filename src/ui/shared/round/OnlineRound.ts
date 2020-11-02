@@ -613,6 +613,12 @@ export default class OnlineRound implements OnlineRoundInterface {
     if (this.vm.submitFeedback) {
       this.vm.submitFeedback = undefined
     }
+    if (this.vm.moveToSubmit) {
+      this.vm.moveToSubmit = null
+    }
+    if (this.vm.dropToSubmit) {
+      this.vm.dropToSubmit = null
+    }
 
     if (o.ratingDiff) {
       d.player.ratingDiff = o.ratingDiff[d.player.color]
