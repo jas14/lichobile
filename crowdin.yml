@@ -4,6 +4,6 @@ preserve_hierarchy: true
 append_commit_message: false
 commit_message: 'New translations: %original_file_name% (%language%)'
 files:
-  - source: /translation/source/*.xml
+  - source: /translation/source/*.json
     translation: /translation/dest/%file_name%/%locale%.%file_extension%
     update_option: update_without_changes
